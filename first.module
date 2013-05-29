@@ -35,17 +35,19 @@ function first_block_info() {
 
 /**
  * Implements hook_block_view()
+ *
+ * returns 2 items: 1) subject; block name, 2) content formatted as html
  */
 function first_block_view() {
 	if ($block_name == 'list_modules') {
-		$list = module_list();
+		$list = module_list(); // Drupal function which returns an associative array of module names
 		
 		$theme_args = array('items' => $list, 'type' => 'ol');
-		$content = theme('item_list', $theme_args);
+		$content = theme('item_list', $theme_args); // theme args= 1) the name of the theme operation, 2) an ass. array of vars to pass
 		
 		$block = array(
 			'subject' => t('Enabled Modules'),
-			'content' => $content,
+			'content' => $content, // comma required
 		);
 		return $block;
 	}
