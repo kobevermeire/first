@@ -7,7 +7,7 @@
 class FirstTestCase extends DrupalWebTestCase {
 
 	public function setUp() {
-		parent::setUp('first');
+		parent::setUp();
 	}
 
 	public function getInfo() { // showed in test table
@@ -29,7 +29,7 @@ class FirstTestCase extends DrupalWebTestCase {
 	public function testBlockView() {
 		$data = module_invoke('first', 'block_view', 'list_modules');
 		
-		$this->assertTrue(isArray($data), t('Block returns renderable array.'));
+		$this->assertTrue(is_array($data), t('Block returns renderable array.'));
 			
 		$this->assertEqual(t('Enabled Modules'), $data['subject'], t('Subject is set'));
 	}
