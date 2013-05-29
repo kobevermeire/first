@@ -1,0 +1,20 @@
+<?php
+// $id$
+
+/**
+ * @file
+ * A module exemplifying Drupal coding practices and API's
+ * 
+ * This module provides a block that lists all of the
+ * installed modules.
+ *
+ */
+ 
+/**
+ * Implements hook_help().
+ */
+function first_help($path, $arg) {
+	if ($path == 'admin/help#first') {
+		return t('A demonstration module.');
+	}
+}
