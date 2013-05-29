@@ -18,3 +18,17 @@ function first_help($path, $arg) {
 		return t('A demonstration module.');
 	}
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function first_block_info() {
+	$blocks = array();
+	
+	$blocks['list_modules'] = array(
+		'info' => t('A listing of all of the enabled modules.'),
+		'cache' => DRUPAL_NO_CACHE,
+	);
+	
+	return $blocks;
+}
