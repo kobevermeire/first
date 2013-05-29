@@ -32,3 +32,21 @@ function first_block_info() {
 	
 	return $blocks;
 }
+
+/**
+ * Implements hook_block_view()
+ */
+function first_block_view() {
+	if ($block_name == 'list_modules') {
+		$list = module_list();
+		
+		$theme_args = array('items' => $list, 'type' => 'ol');
+		$content = theme('item_list', $theme_args);
+		
+		$block = array(
+			'subject' => t('Enabled Modules'),
+			'content' => $content,
+		);
+		return $block;
+	}
+}
