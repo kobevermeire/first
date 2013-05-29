@@ -38,7 +38,7 @@ function first_block_info() {
  *
  * returns 2 items: 1) subject; block name, 2) content formatted as html
  */
-function first_block_view() {
+function first_block_view($block_name = '') {
 	if ($block_name == 'list_modules') {
 		$list = module_list(); // Drupal function which returns an associative array of module names
 		
